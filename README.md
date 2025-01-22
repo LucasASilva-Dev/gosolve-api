@@ -17,12 +17,12 @@ Sample input file is added as `input.txt` file.
 
 ## Installing the project
 
+Assuming that you already have GoLang working in version 1.23.5 in your envoriment.
 ```
 make install
 ```
 
 ## Building the project
-
 ```
 make build
 ```
@@ -33,7 +33,24 @@ make build
 make test
 ```
 
+## Code coverage
+
+```
+make coverage
+```
+
 ## Running the application locally:
+
+To run the app locally on your machine, run the command:
+
+The API have two internal servers, one for the API itself and another one for Prometheus metrics.
+
+The prometheus metrics will start at port `8380` in endpoint `/metrics`
+
+The default port for server is `1323`. You can change that by runing in another port
+
+The API is configured to use commands to start the server and have options within.
+
 
 Initially, we need to configure a series of environment variables. To
 generate the `.env` file, you can run the command:
@@ -42,26 +59,11 @@ generate the `.env` file, you can run the command:
 make local.env
 ```
 
-Examples of how some variables can be filled to run in a local environment:
-
-```bash
-ENV=dev
-LOG_LEVEL=debug
-HOST="127.0.0.1"
-PORT="1323"
-```
-
 Don't worry, this `local.env` file is ignored by git and changes to it are not pushed to the repository.
 
 
-To run the app locally on your machine, run the command:
+To facilite the run, the command `make run` load the default parameters, but fill free to change it.
 
 ```bash
 make run
-```
-
-## Cobertura de código
-
-```
-make coverage
 ```
